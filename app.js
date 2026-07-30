@@ -158,3 +158,33 @@ document.querySelector("#helperButton").addEventListener("click", () => {
 });
 
 configurePage();
+
+// 전체 일정 팝업
+const scheduleLink = document.getElementById("scheduleLink");
+const scheduleModal = document.getElementById("scheduleModal");
+const scheduleClose = document.getElementById("scheduleClose");
+const scheduleBackdrop = scheduleModal?.querySelector("[data-close-schedule]");
+
+function openSchedule(event) {
+  event.preventDefault();
+
+  scheduleModal.hidden = false;
+  document.body.classList.add("schedule-open");
+  scheduleClose.focus();
+}
+
+function closeSchedule() {
+  scheduleModal.hidden = true;
+  document.body.classList.remove("schedule-open");
+  scheduleLink.focus();
+}
+
+scheduleLink?.addEventListener("click", openSchedule);
+scheduleClose?.addEventListener("click", closeSchedule);
+scheduleBackdrop?.addEventListener("click", closeSchedule);
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && scheduleModal && !scheduleModal.hidden) {
+    closeSchedule();
+  }
+});
