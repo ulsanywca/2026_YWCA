@@ -45,7 +45,7 @@ main {
 
 .hero {
   position: relative;
-  min-height: 745px;
+  min-height: 665px;
   overflow: hidden;
   color: #183a4c;
   background-color: #d7f1ff;
@@ -132,7 +132,7 @@ h1 span { font-size: .7em; letter-spacing: .03em; }
 }
 .event-meta {
   display: block;
-  margin: 26px auto 0;
+  margin: 12px auto 0;
   padding: 0;
   color: #17292f;
   background: transparent;
@@ -428,7 +428,7 @@ footer p { margin: 5px 0; font-size: 15px; }
 }
 
 @media (max-width: 380px) {
-  .hero { min-height: 710px; }
+  .hero { min-height: 645px; }
   .hero__content { padding-top: 42px; }
   .character--main { height: 220px; }
   .character--main img { height: 270px;
