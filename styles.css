@@ -118,13 +118,17 @@ h1 span { font-size: .7em; letter-spacing: .03em; }
 }
 .character--main {
   position: relative;
-  height: 310px;
-  margin-top: 8px;
+  height: 230px;
+  margin-top: 10px;
 }
 .character img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.character--main img {
+  height: 280px;
+  transform: translateY(-22px);
 }
 .event-meta {
   display: block;
@@ -426,7 +430,10 @@ footer p { margin: 5px 0; font-size: 15px; }
 @media (max-width: 380px) {
   .hero { min-height: 710px; }
   .hero__content { padding-top: 42px; }
-  .character--main { height: 285px; }
+  .character--main { height: 220px; }
+  .character--main img { height: 270px;
+  transform: translateY(-22px);
+}
   .content { padding-left: 16px; padding-right: 16px; }
   .lookup-card { padding-left: 16px; padding-right: 16px; }
   .helper__bubble { width: min(245px, calc(100vw - 96px));
