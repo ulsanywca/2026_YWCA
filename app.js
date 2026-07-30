@@ -19,7 +19,6 @@ function configurePage() {
   eventMeta.replaceChildren(dateLine, placeLine);
   setLink("#instagramLink", config.INSTAGRAM_URL);
   setLink("#kakaoLink", config.KAKAO_CHANNEL_URL);
-  setLink("#scheduleLink", config.SCHEDULE_URL);
   setLink("#tourLink", config.ULSAN_TOUR_URL);
 }
 
