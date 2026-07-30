@@ -24,8 +24,11 @@ function configurePage() {
 
 function setLink(selector, url) {
   const element = document.querySelector(selector);
+
+  if (!element) return;
+
   element.href = url || "#";
-  if (!url || url === "#") {
+  if (selector !== "#scheduleLink" && (!url || url === "#")) {
     element.addEventListener("click", event => {
       event.preventDefault();
       alert("연결 주소가 준비되면 이용할 수 있어요.");

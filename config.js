@@ -12,5 +12,5 @@ window.MEETING_CONFIG = {
   INSTAGRAM_URL: "https://www.instagram.com/ulsan_ywca",
   KAKAO_CHANNEL_URL: "http://pf.kakao.com/_hhxaYK",
   SCHEDULE_URL: "#",
-  ULSAN_TOUR_URL: "https://www.ulsan.go.kr/tour/kor/contents.ulsan?mId=001001000000000000"
+  ULSAN_TOUR_URL: "https://www.ulsan.go.kr/tour/kor/contents.ulsan?mId=001001006000000000"
 };
