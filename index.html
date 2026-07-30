@@ -92,12 +92,15 @@
       </section>
 
       <section class="quick-links" aria-label="행사 바로가기">
-        <a class="quick-card quick-card--schedule" id="scheduleLink" href="#" target="_blank" rel="noopener">
-          <span class="quick-card__label">PROGRAM</span>
-          <strong>전체 일정 확인하기</strong>
-          <span>행사 일정을 한눈에 확인하세요</span>
-          <b aria-hidden="true">→</b>
-        </a>
+        <a class="quick-card quick-card--schedule"
+   id="scheduleLink"
+   href="#scheduleModal"
+   aria-haspopup="dialog">
+  <span class="quick-card__label">PROGRAM</span>
+  <strong>전체 일정 확인하기</strong>
+  <span>행사 일정을 한눈에 확인하세요</span>
+  <b aria-hidden="true">→</b>
+</a>
         <a class="quick-card quick-card--tour"
    href="https://www.ulsan.go.kr/tour/kor/contents.ulsan?mId=001001006000000000"
    target="_blank"
@@ -129,6 +132,227 @@
       </footer>
     </section>
   </main>
+
+  <!-- 전체 일정 팝업 -->
+<div class="schedule-modal"
+     id="scheduleModal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="scheduleTitle"
+     hidden>
+
+  <div class="schedule-modal__backdrop" data-close-schedule></div>
+
+  <div class="schedule-modal__panel">
+    <button class="schedule-modal__close"
+            id="scheduleClose"
+            type="button"
+            aria-label="전체 일정 닫기">×</button>
+
+    <header class="schedule-modal__header">
+      <span class="schedule-modal__label">PROGRAM</span>
+      <h2 id="scheduleTitle">2026년 전국증경회장단 모임</h2>
+
+      <div class="schedule-modal__info">
+        <p><span>📅</span> 2026년 9월 15일(화) ~ 16일(수)</p>
+        <p><span>📍</span> 울산 머큐어앰배서더 · 대왕암공원 · 태화강국가정원</p>
+      </div>
+    </header>
+
+    <div class="schedule-modal__body">
+
+      <!-- 1일차 -->
+      <section class="schedule-day" aria-labelledby="scheduleDay1">
+        <div class="schedule-day__heading">
+          <span>DAY 1</span>
+          <div>
+            <h3 id="scheduleDay1">첫째 날</h3>
+            <p>9월 15일 화요일</p>
+          </div>
+        </div>
+
+        <div class="schedule-list">
+          <article class="schedule-item">
+            <time>12:00~12:30</time>
+            <div>
+              <strong>접수 및 등록</strong>
+              <p>📍 머큐어앰배서더 3층 마르세유홀</p>
+            </div>
+          </article>
+
+          <article class="schedule-item schedule-item--meal">
+            <time>12:30~13:40</time>
+            <div>
+              <strong>점심식사 및 휴식</strong>
+              <p>📍 3층 OPUS</p>
+            </div>
+          </article>
+
+          <article class="schedule-item schedule-item--main">
+            <time>13:40~14:40</time>
+            <div><strong>개회예배</strong></div>
+          </article>
+
+          <article class="schedule-item">
+            <time>14:40~15:00</time>
+            <div><strong>개회식</strong></div>
+          </article>
+
+          <article class="schedule-item">
+            <time>15:00~15:20</time>
+            <div><strong>축하공연</strong></div>
+          </article>
+
+          <article class="schedule-item">
+            <time>15:20~16:00</time>
+            <div><strong>특강</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--rest">
+            <time>16:00~17:00</time>
+            <div><strong>휴식 및 숙소 짐 풀기</strong></div>
+          </article>
+
+          <article class="schedule-item">
+            <time>17:00~18:00</time>
+            <div><strong>사무회의</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--meal">
+            <time>18:00~19:00</time>
+            <div>
+              <strong>저녁식사</strong>
+              <p>📍 3층 OPUS</p>
+            </div>
+          </article>
+
+          <article class="schedule-item">
+            <time>19:00~20:30</time>
+            <div><strong>권역별 모임 또는 휴식</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2일차 -->
+      <section class="schedule-day" aria-labelledby="scheduleDay2">
+        <div class="schedule-day__heading">
+          <span>DAY 2</span>
+          <div>
+            <h3 id="scheduleDay2">둘째 날</h3>
+            <p>9월 16일 수요일</p>
+          </div>
+        </div>
+
+        <div class="schedule-list">
+          <article class="schedule-item schedule-item--meal">
+            <time>07:00~08:30</time>
+            <div>
+              <strong>아침식사</strong>
+              <p>📍 3층 OPUS</p>
+            </div>
+          </article>
+
+          <article class="schedule-item">
+            <time>08:30~09:00</time>
+            <div>
+              <strong>퇴실 및 관광버스 탑승</strong>
+              <p>📍 호텔 입구 쪽 도로</p>
+            </div>
+          </article>
+
+          <article class="schedule-item schedule-item--move">
+            <time>09:00~09:40</time>
+            <div><strong>대왕암공원으로 이동</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--tour">
+            <time>09:40~11:00</time>
+            <div>
+              <strong>대왕암공원 관람</strong>
+              <p>📍 대왕암공원</p>
+            </div>
+          </article>
+
+          <article class="schedule-item">
+            <time>11:00~11:10</time>
+            <div><strong>관광버스 탑승</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--move">
+            <time>11:10~11:40</time>
+            <div><strong>태화강국가정원으로 이동</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--tour">
+            <time>11:40~13:00</time>
+            <div><strong>태화강국가정원 관람</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--move">
+            <time>13:00~13:20</time>
+            <div><strong>점심식사 장소로 이동</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--meal">
+            <time>13:20~14:00</time>
+            <div>
+              <strong>점심식사</strong>
+              <p>📍 함양집</p>
+            </div>
+          </article>
+
+          <article class="schedule-item">
+            <time>14:00~15:00</time>
+            <div><strong>카페 티타임</strong></div>
+          </article>
+
+          <article class="schedule-item schedule-item--main">
+            <time>15:00~</time>
+            <div><strong>이동 및 해산</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 귀가 안내 -->
+      <section class="departure-guide">
+        <div class="departure-guide__heading">
+          <span>🚌</span>
+          <div>
+            <p>RETURN INFORMATION</p>
+            <h3>귀가 교통편 안내</h3>
+          </div>
+        </div>
+
+        <div class="departure-guide__list">
+          <article>
+            <span>🚗</span>
+            <div>
+              <strong>자차 이용자</strong>
+              <p>일정 종료 후 관광버스로 호텔까지 함께 이동한 뒤, 주차된 차량으로 귀가합니다.</p>
+            </div>
+          </article>
+
+          <article>
+            <span>🚄</span>
+            <div>
+              <strong>울산(통도사)역 KTX 이용자</strong>
+              <p>일정 종료 후 관광버스로 울산역까지 이동합니다.</p>
+            </div>
+          </article>
+
+          <article>
+            <span>🚌</span>
+            <div>
+              <strong>시외·고속버스 및 태화강역 이용자</strong>
+              <p>일정 종료 장소에서 해당 터미널 또는 역까지 개별 이동을 부탁드립니다. 별도의 이동 차량이 운영되지 않는 점 너른 양해 부탁드립니다.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
 
   <aside class="helper" id="helper">
     <div class="helper__bubble" id="helperBubble">
