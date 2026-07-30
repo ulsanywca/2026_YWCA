@@ -2,29 +2,37 @@
   <rect width="240" height="200" fill="#e2f5fc"/>
   <defs>
     <g id="whale">
-      <!-- 물줄기 -->
-      <g fill="#9bcddd">
-        <rect x="28" y="0" width="8" height="8"/>
-        <rect x="68" y="0" width="8" height="8"/>
-        <rect x="38" y="8" width="8" height="8"/>
-        <rect x="58" y="8" width="8" height="8"/>
-        <rect x="48" y="18" width="8" height="8"/>
+      <!-- 머리에서 위로 퍼지는 물줄기 -->
+      <g fill="#a9d6e4">
+        <rect x="24" y="0" width="8" height="8"/>
+        <rect x="64" y="0" width="8" height="8"/>
+        <rect x="32" y="8" width="8" height="8"/>
+        <rect x="56" y="8" width="8" height="8"/>
+        <rect x="40" y="16" width="16" height="8"/>
+        <rect x="44" y="24" width="8" height="8"/>
       </g>
-      <!-- 둥근 머리와 몸통 -->
-      <path fill="#94c6d8" d="M20 58h10V48h20V40h38v8h18v10h12v14h10v20h12v12h12v10h18v-10h10V94h12v12h10v20h-10v10h-12v-10h-12v-8h-20v-8h-16v-8h-14v-8H92v-8H72v8H48v-8H30V76H20z"/>
-      <!-- 갈라진 꼬리 -->
-      <path fill="#82b4c7" d="M164 82h10V72h10V62h18v18h-10v10h10v18h-18V98h-10V90h-10z"/>
-      <!-- 밝은 배와 지느러미 -->
-      <path fill="#dbeef5" d="M20 68h12v10h18v8h22v8h20v8h16v8H92v-8H70v-8H48v-8H30V78H20z"/>
-      <path fill="#b2d7e4" d="M76 94h12v10h12v12H88v-8H76z"/>
-      <rect x="43" y="58" width="6" height="6" fill="#668b9b"/>
-      <rect x="20" y="73" width="12" height="4" fill="#78a4b5"/>
+
+      <!-- 둥근 머리와 통통한 몸통 -->
+      <path fill="#8fc4d7" d="M24 40h48v8h24v8h16v8h8v16h-8v8H96v8H72v8H32v-8H16v-8H8V64h8V48h8z"/>
+
+      <!-- 몸통과 분리되어 보이는 갈라진 꼬리 -->
+      <path fill="#7fb5c8" d="M104 56h8v-8h8v-8h16v16h-8v8h8v16h-16v-8h-8v-8h-8z"/>
+
+      <!-- 흰색 반원형 배 -->
+      <path fill="#ffffff" d="M16 64h16v8h24v8h32v-8h16v8h-8v8H80v8H64v8H40v-8H24v-8h-8z"/>
+
+      <!-- 아래쪽 지느러미 -->
+      <path fill="#add5e3" d="M48 88h16v8h8v16H56v-8h-8z"/>
+
+      <!-- 눈과 미소 -->
+      <rect x="28" y="56" width="6" height="6" fill="#5f8291"/>
+      <rect x="16" y="72" width="12" height="4" fill="#739ead"/>
     </g>
   </defs>
 
   <!-- 같은 크기의 고래를 엇갈린 바둑판 배열로 배치 -->
-  <use href="#whale" transform="translate(4 2) scale(.5)" opacity=".32"/>
-  <use href="#whale" transform="translate(126 100) scale(.5)" opacity=".32"/>
+  <use href="#whale" transform="translate(10 4) scale(.58)" opacity=".38"/>
+  <use href="#whale" transform="translate(132 102) scale(.58)" opacity=".38"/>
 
   <g fill="#fff" opacity=".75">
     <rect x="178" y="28" width="5" height="5"/>
