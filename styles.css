@@ -105,21 +105,40 @@ h1 {
 }
 h1 span { font-size: .7em; letter-spacing: .03em; }
 .hero__message {
+  position: relative;
   display: table;
-  margin: 14px auto 4px;
-  padding: 8px 16px;
+  margin: 16px auto 7px;
+  padding: 11px 27px 12px;
   color: #123f56;
-  background: rgba(255,255,255,.78);
-  border-radius: 15px;
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.55;
-  text-shadow: 0 1px 0 #fff;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(18,63,86,.1);
+  border-radius: 24px;
+  box-shadow: 0 7px 18px rgba(30,91,112,.12);
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: .01em;
+  text-shadow: none;
+  transform: rotate(-1deg);
+}
+.hero__message::after {
+  content: "";
+  position: absolute;
+  left: 52%;
+  bottom: -14px;
+  width: 25px;
+  height: 22px;
+  background: rgba(255,255,255,.94);
+  border-bottom: 1px solid rgba(18,63,86,.1);
+  border-left: 1px solid rgba(18,63,86,.1);
+  transform: translateX(-50%) skewY(-35deg) rotate(-18deg);
+  clip-path: polygon(0 0, 100% 0, 35% 100%);
 }
 .character--main {
   position: relative;
   height: 230px;
-  margin-top: 10px;
+  margin-top: 7px;
 }
 .character img {
   width: 100%;
