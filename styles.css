@@ -380,10 +380,10 @@ footer p { margin: 5px 0; font-size: 15px; }
 }
 .helper__bubble {
   position: absolute;
-  width: 245px;
+  width: min(245px, calc(100vw - 96px));
   right: 82px;
   bottom: 72px;
-  padding: 18px 36px;
+  padding: 18px 24px;
   text-align: center;
   border: 2px solid var(--ywca);
   border-radius: 18px 18px 4px 18px;
@@ -397,6 +397,12 @@ footer p { margin: 5px 0; font-size: 15px; }
   text-align: center;
   font-size: 16px;
   line-height: 1.45;
+}
+.helper__bubble p span,
+.helper__bubble strong span {
+  display: block;
+  white-space: nowrap;
+  font-size: inherit;
 }
 .helper__bubble strong { display: block; margin-top: 6px; color: var(--ywca); }
 .helper__bubble button {
@@ -423,7 +429,8 @@ footer p { margin: 5px 0; font-size: 15px; }
   .character--main { height: 285px; }
   .content { padding-left: 16px; padding-right: 16px; }
   .lookup-card { padding-left: 16px; padding-right: 16px; }
-  .helper__bubble { width: 220px; }
+  .helper__bubble { width: min(245px, calc(100vw - 96px));
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
