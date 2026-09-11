@@ -10,6 +10,12 @@ function normalizeName(value) {
   return value.trim().replace(/\s+/g, "").toLocaleLowerCase("ko-KR");
 }
 
+function formatBus(value) {
+  const bus = String(value || "").trim();
+  if (!bus) return "배차 미정";
+  return /^\d+$/.test(bus) ? `${bus}호차` : bus;
+}
+
 function configurePage() {
   const eventMeta = document.querySelector("#eventMeta");
   const dateLine = document.createElement("span");
@@ -87,10 +93,14 @@ form.addEventListener("submit", async event => {
 
 function showGuest(guest) {
   candidatePanel.hidden = true;
+  const room = String(guest.room || "").trim();
   document.querySelector("#resultName").textContent = guest.name;
-  document.querySelector("#resultRoom").textContent = guest.room || "미정";
+  document.querySelector("#resultRoom").textContent = room || "숙소 미정";
+  document.querySelector("#resultRoomSuffix").textContent = room ? "호" : "";
   document.querySelector("#resultRoommates").textContent =
-    guest.roommates?.length ? guest.roommates.map(name => `${name} 님`).join(", ") : "1인실";
+    !room ? "숙박 정보가 아직 정해지지 않았습니다." :
+      guest.roommates?.length ? guest.roommates.map(name => `${name} 님`).join(", ") : "1인실";
+  document.querySelector("#resultBus").textContent = formatBus(guest.bus);
   document.querySelector("#resultRegion").textContent = `${guest.region || "소속 지역"} 참가자`;
 
   const list = document.querySelector("#regionGuests");
@@ -106,7 +116,7 @@ function showGuest(guest) {
       const name = document.createElement("span");
       const room = document.createElement("strong");
       name.textContent = `${person.name} 님`;
-      room.textContent = `${person.room || "미정"}호`;
+      room.textContent = person.room ? `${person.room}호` : "미정";
       item.append(name, room);
       list.append(item);
     });
@@ -141,7 +151,7 @@ function clearPanels() {
 
 function setLoading(isLoading) {
   submitButton.disabled = isLoading;
-  submitButton.textContent = isLoading ? "찾고 있어요…" : "숙소 확인하기";
+  submitButton.textContent = isLoading ? "찾고 있어요…" : "숙소·차량 확인하기";
 }
 
 document.querySelector("#resetButton").addEventListener("click", () => {

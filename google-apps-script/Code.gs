@@ -1,7 +1,7 @@
 /**
  * Google Sheet 첫 번째 시트의 참가자 정보를 이름으로 조회합니다.
  *
- * 1행 제목: ID | 이름 | 지역 | 호실 | 룸메이트
+ * 1행 제목: ID | 이름 | 지역 | 호실 | 룸메이트 | 2일차 배차
  * 룸메이트가 여러 명이면 쉼표(,)로 구분합니다.
  */
 const SHEET_NAME = "참가자";
@@ -24,7 +24,10 @@ function doGet(e) {
       region: cell_(row, headers, "지역"),
       room: cell_(row, headers, "호실"),
       roommates: cell_(row, headers, "룸메이트")
-        .split(",").map(item => item.trim()).filter(Boolean)
+        .split(",").map(item => item.trim()).filter(Boolean),
+      bus: cell_(row, headers, "2일차 배차") ||
+        cell_(row, headers, "배차 차량") ||
+        cell_(row, headers, "배차")
     }));
 
     const matches = rows.filter(person => normalize_(person.name) === name);
@@ -34,6 +37,7 @@ function doGet(e) {
       region: guest.region,
       room: guest.room,
       roommates: guest.roommates,
+      bus: guest.bus,
       regionGuests: rows
         .filter(person => person.region === guest.region && person.id !== guest.id)
         .map(person => ({ name: person.name, room: person.room }))

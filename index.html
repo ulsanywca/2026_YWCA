@@ -29,7 +29,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <main>
@@ -53,27 +53,33 @@
         <div class="section-heading">
           <span class="section-heading__icon">🏨</span>
           <div>
-            <p>MY ROOM</p>
-            <h2 id="lookup-title">나의 숙소 찾기</h2>
+            <p>MY ROOM & BUS</p>
+            <h2 id="lookup-title">나의 숙소·차량 찾기</h2>
           </div>
         </div>
-        <p class="lookup-card__guide">성함을 입력하면 호실과 룸메이트를 알려드려요.</p>
+        <p class="lookup-card__guide">성함을 입력하면 숙소 정보와 2일차 탑승 차량을 알려드려요.</p>
 
         <form id="lookupForm" class="lookup-form">
           <label class="sr-only" for="guestName">참가자 이름</label>
           <input id="guestName" name="name" type="text" autocomplete="name"
                  placeholder="성함을 입력해 주세요" maxlength="20" required>
-          <button type="submit">숙소 확인하기</button>
+          <button type="submit">숙소·차량 확인하기</button>
         </form>
         <p id="statusMessage" class="status-message" role="status" aria-live="polite"></p>
 
         <div id="resultPanel" class="result-panel" hidden>
-          <p class="result-panel__welcome"><strong id="resultName"></strong> 님의 숙소는</p>
-          <div class="room-number"><span id="resultRoom"></span>호</div>
+          <p class="result-panel__welcome"><strong id="resultName"></strong> 님의 배정 정보입니다.</p>
+          <div class="room-number"><span id="resultRoom"></span><span id="resultRoomSuffix">호</span></div>
 
           <div class="roommate-box">
             <span>함께 머무는 분</span>
             <strong id="resultRoommates"></strong>
+          </div>
+
+          <div class="bus-box">
+            <span>🚌 2일차 탑승 차량</span>
+            <strong id="resultBus"></strong>
+            <small>9월 16일(수) 호텔 앞에서 해당 차량에 탑승해 주세요.</small>
           </div>
 
           <div class="region-box">
@@ -277,7 +283,7 @@
           <article class="schedule-item schedule-item--meal">
             <time>12:00~13:30</time>
             <div><strong>오찬 및 티타임</strong>
-              <p>📍 한가위</p></div>
+              <p>📍 외식명가</p></div>
           </article>
 
           <article class="schedule-item schedule-item--move">
@@ -311,15 +317,23 @@
             <span>🚄</span>
             <div>
               <strong>태화강역 이용자</strong>
-              <p>일정 종료 후 관광버스로 태화강역까지 이동합니다. (약 15분 소요)</p>
+              <p>일정 종료 후 관광버스로 태화강역까지 이동합니다. (약 5분 소요)</p>
             </div>
           </article>
           
           <article>
+            <span>🚌</span>
+            <div>
+              <strong>고속·시외버스 이용자</strong>
+              <p>일정 종료 후 도보로 이동합니다. (약 5분 소요)</p>
+            </div>
+          </article>
+
+          <article>
             <span>🚗</span>
             <div>
-              <strong>자차 이용자</strong>
-              <p>일정 종료 후 관광버스로 호텔까지 이동합니다. (약 20분 소요)</p>
+              <strong>자차 이용자 중 관광버스 탑승자</strong>
+              <p>일정 종료 후 관광버스로 호텔까지 이동합니다. (약 40분 소요)</p>
             </div>
           </article>
         </div>
@@ -348,7 +362,7 @@
   </aside>
 
   <script src="config.js?v=2"></script>
-<script src="sample-data.js?v=3"></script>
-<script src="app.js?v=2"></script>
+<script src="sample-data.js?v=4"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

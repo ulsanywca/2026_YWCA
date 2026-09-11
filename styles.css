@@ -267,6 +267,18 @@ h1 span { font-size: .7em; letter-spacing: .03em; }
 .roommate-box span, .roommate-box strong { display: block; }
 .roommate-box span { margin-bottom: 6px; color: #806f55; font-size: 16px; }
 .roommate-box strong { font-size: 21px; }
+.bus-box {
+  margin-top: 14px;
+  padding: 18px 16px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ywca), var(--ywca-dark));
+  border-radius: 16px;
+  box-shadow: 0 7px 18px rgba(8,120,141,.18);
+}
+.bus-box span, .bus-box strong, .bus-box small { display: block; }
+.bus-box span { font-size: 16px; font-weight: 700; }
+.bus-box strong { margin: 3px 0 5px; font-size: 31px; line-height: 1.35; }
+.bus-box small { color: rgba(255,255,255,.86); font-size: 14px; }
 .region-box {
   margin-top: 14px;
   padding: 18px;
