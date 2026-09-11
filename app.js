@@ -6,6 +6,22 @@ const statusMessage = document.querySelector("#statusMessage");
 const resultPanel = document.querySelector("#resultPanel");
 const candidatePanel = document.querySelector("#candidatePanel");
 
+const BUS_GUIDES = {
+  "1호차": [
+    "일정 종료 후 울산(통도사)역으로 이동합니다.",
+    "귀가에 필요한 개인 짐을 모두 챙겨 관광버스에 탑승해 주세요."
+  ],
+  "2호차": [
+    "일정 종료 후 태화강역을 거쳐 호텔로 이동합니다.",
+    "태화강역 및 고속버스터미널 이용자는 개인 짐을 모두 챙겨 관광버스에 탑승해 주세요.",
+    "개인차 이용자는 본인의 짐을 호텔 주차장의 개인 차량에 미리 실어 두고, 관광버스에는 관람 중 필요한 소지품만 챙겨 탑승해 주세요."
+  ],
+  "3호차": [
+    "일정 종료 후 호텔로 이동합니다.",
+    "본인의 짐은 관광버스에 싣지 말고 호텔 주차장의 개인 차량에 미리 실어 두어 주세요. 관광버스에는 관람 중 필요한 소지품만 챙겨 탑승해 주세요."
+  ]
+};
+
 function normalizeName(value) {
   return value.trim().replace(/\s+/g, "").toLocaleLowerCase("ko-KR");
 }
@@ -13,7 +29,29 @@ function normalizeName(value) {
 function formatBus(value) {
   const bus = String(value || "").trim();
   if (!bus) return "배차 미정";
-  return /^\d+$/.test(bus) ? `${bus}호차` : bus;
+  const compactBus = bus.replace(/\s+/g, "");
+  if (/^\d+$/.test(compactBus)) return `${compactBus}호차`;
+  if (/^\d+호차$/.test(compactBus)) return compactBus;
+  return bus;
+}
+
+function showBusGuide(bus) {
+  const container = document.querySelector("#resultBusGuide");
+  const guide = BUS_GUIDES[bus];
+  container.replaceChildren();
+
+  if (!guide) {
+    const message = document.createElement("p");
+    message.textContent = "차량별 세부 안내는 배차 확정 후 표시됩니다.";
+    container.append(message);
+    return;
+  }
+
+  guide.forEach(text => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    container.append(paragraph);
+  });
 }
 
 function configurePage() {
@@ -100,7 +138,9 @@ function showGuest(guest) {
   document.querySelector("#resultRoommates").textContent =
     !room ? "숙박 정보가 아직 정해지지 않았습니다." :
       guest.roommates?.length ? guest.roommates.map(name => `${name} 님`).join(", ") : "1인실";
-  document.querySelector("#resultBus").textContent = formatBus(guest.bus);
+  const bus = formatBus(guest.bus);
+  document.querySelector("#resultBus").textContent = bus;
+  showBusGuide(bus);
   document.querySelector("#resultRegion").textContent = `${guest.region || "소속 지역"} 참가자`;
 
   const list = document.querySelector("#regionGuests");
