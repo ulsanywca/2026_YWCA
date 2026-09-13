@@ -3,8 +3,8 @@
  * Google Apps Script 배포 전에는 DATA_MODE를 "sample"로 유지합니다.
  */
 window.MEETING_CONFIG = {
-  DATA_MODE: "sample", // "sample" 또는 "google-sheet"
-  API_URL: "", // Google Apps Script 웹 앱 주소
+  DATA_MODE: "google-sheet",
+  API_URL: "https://script.google.com/macros/s/AKfycbw4IJd9O9JUW39DLZz2CqGJ3mO26M_TN0iFwnVk0EPPWVW_I4-OGUnrhz0pOUeMj2m-Pw/exec",
 
   EVENT_DATE: "2026년 9월 15일(화)~16일(수)",
   EVENT_PLACE: "머큐어 앰버서더",
