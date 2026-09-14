@@ -135,9 +135,19 @@ function showGuest(guest) {
   document.querySelector("#resultName").textContent = guest.name;
   document.querySelector("#resultRoom").textContent = room || "숙소 미정";
   document.querySelector("#resultRoomSuffix").textContent = room ? "호" : "";
-  document.querySelector("#resultRoommates").textContent =
-    !room ? "숙박 정보가 아직 정해지지 않았습니다." :
-      guest.roommates?.length ? guest.roommates.map(name => `${name} 님`).join(", ") : "1인실";
+  const roommates = Array.isArray(guest.roommates) ? guest.roommates : [];
+
+document.querySelector("#resultRoommates").textContent =
+  !room
+    ? "숙박 정보가 아직 정해지지 않았습니다."
+    : roommates.length
+      ? roommates.map(person => {
+          const name = typeof person === "string" ? person : person.name;
+          const region = typeof person === "string" ? "" : person.region;
+
+          return `${name} 님${region ? ` (${region})` : ""}`;
+        }).join(", ")
+      : "1인실";
   const bus = formatBus(guest.bus);
   document.querySelector("#resultBus").textContent = bus;
   showBusGuide(bus);
